@@ -93,7 +93,11 @@ public class OAuth2TokenRepository {
         if name.isEmpty {
             throw ReddiftError.tokenNameIsInvalid as NSError
         }
-        let keychain = MiniKeychain(service:Config.sharedInstance.bundleIdentifier)
-        keychain.delete(key: name)
+        do {
+            let keychain = MiniKeychain(service:Config.sharedInstance.bundleIdentifier)
+            keychain.delete(key: name)
+        } catch {
+            throw error
+        }
     }
 }
