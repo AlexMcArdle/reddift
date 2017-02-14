@@ -154,7 +154,7 @@ public struct Comment: Thing, Created, Votable {
     /**
     example:
     */
-    public let distinguished: Bool
+    public let distinguished: String?
     /**
     example: []
     */
@@ -215,7 +215,7 @@ public struct Comment: Thing, Created, Votable {
         created = 0
         authorFlairText = ""
         createdUtc = 0
-        distinguished = false
+        distinguished = nil
         modReports = []
         numReports = 0
         ups = 0
@@ -296,7 +296,7 @@ public struct Comment: Thing, Created, Votable {
         created = data["created"] as? Int ?? 0
         authorFlairText = data["author_flair_text"] as? String ?? ""
         createdUtc = data["created_utc"] as? Int ?? 0
-        distinguished = data["distinguished"] as? Bool ?? false
+        distinguished = data["distinguished"] as? String ?? nil
         modReports = []
         numReports = data["num_reports"] as? Int ?? 0
         ups = data["ups"] as? Int ?? 0
